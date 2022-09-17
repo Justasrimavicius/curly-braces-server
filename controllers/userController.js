@@ -14,7 +14,7 @@ exports.signup = (req,res,next)=>{
         hashedPassword=result;
         const user = new userModel({username: req.body.username, password: hashedPassword, correctTestAnswers: -1});
         user.save();
-        res.redirect('http://localhost:3000')
+        res.redirect('https://curly-braces.netlify.app/')
       });
 }
 
@@ -22,12 +22,12 @@ exports.login = (req,res,next)=>{
     userModel.findOne({username: req.body.username},function(err,user){
     if(!user){
         console.log('------------_ERRRRROR_-------------------');
-        res.redirect('http://localhost:3000/error/2');
+        res.redirect('https://curly-braces.netlify.app/error/2');
         return;
     }
     passport.authenticate("local", {
-        successRedirect: "http://localhost:3000/home/user-"+user._id,
-        failureRedirect: "http://localhost:3000/error/1"
+        successRedirect: "https://curly-braces.netlify.app/home/user-"+user._id,
+        failureRedirect: "https://curly-braces.netlify.app/error/1"
     })(req,res,next)
     })
 };
