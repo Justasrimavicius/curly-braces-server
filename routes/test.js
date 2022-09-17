@@ -28,7 +28,7 @@ router.post('/', function(req,res,next){
                   .then(res=>{ // the document in database does not get updated if a .then() is not attached to it... what?
                   })
                 // show leaderboard.
-                res.redirect(`http://localhost:3000/home/user-${req.body.userID}/leaderboard`);
+                res.redirect(`https://curly-braces.netlify.app/home/user-${req.body.userID}/leaderboard`);
                 return;
             }
             if(testAnswers[i][1]==userAnswers[i].charAt(userAnswers[i].length-1)){
